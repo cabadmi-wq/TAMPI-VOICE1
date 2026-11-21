@@ -1,0 +1,90 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "business_info",
+        "description": "Obtiene la información básica del negocio.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        },
+        "strict": true
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "check_availability",
+        "description": "Consulta si un horario está disponible. Usa una fecha y hora ISO 8601 en zona horaria de Ecuador.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "description": "Inicio de la cita en ISO 8601, por ejemplo 2026-11-21T16:00:00-05:00"
+            },
+            "duration_minutes": {
+              "type": "integer",
+              "description": "Duración de la cita en minutos."
+            }
+          },
+          "required": ["start", "duration_minutes"]
+        },
+        "strict": true
+      },
+      "server": {
+        "url": "https://TU-SERVICIO.onrender.com/webhook/vapi"
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "book_appointment",
+        "description": "Crea una cita después de confirmar con el cliente el servicio, fecha, hora, nombre y teléfono.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "description": "Inicio de la cita en ISO 8601 con zona horaria de Ecuador."
+            },
+            "duration_minutes": {
+              "type": "integer",
+              "description": "Duración de la cita en minutos."
+            },
+            "customer_name": {
+              "type": "string",
+              "description": "Nombre completo del cliente."
+            },
+            "customer_phone": {
+              "type": "string",
+              "description": "Número de teléfono del cliente."
+            },
+            "service_name": {
+              "type": "string",
+              "description": "Servicio que desea reservar."
+            },
+            "notes": {
+              "type": "string",
+              "description": "Observaciones adicionales."
+            }
+          },
+          "required": [
+            "start",
+            "duration_minutes",
+            "customer_name",
+            "customer_phone",
+            "service_name",
+            "notes"
+          ]
+        },
+        "strict": true
+      },
+      "server": {
+        "url": "https://TU-SERVICIO.onrender.com/webhook/vapi"
+      }
+    }
+  ]
+}

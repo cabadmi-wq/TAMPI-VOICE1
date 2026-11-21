@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TAMPI VOICE</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="badge">MVP 1.0</span>
+        <h1>TAMPI <span>VOICE</span></h1>
+        <p>Recepcionista virtual con IA para contestar llamadas y gestionar citas.</p>
+      </div>
+      <div class="status">
+        <strong>● ONLINE</strong>
+        <small>Backend funcionando</small>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Estado</h2>
+        <p><b>Negocio:</b> {{ business_name }}</p>
+        <p><b>Google Calendar:</b>
+          {% if calendar_enabled %}
+            <span class="ok">Configurado</span>
+          {% else %}
+            <span class="warn">Modo demo</span>
+          {% endif %}
+        </p>
+        <a class="button" href="/health" target="_blank">Ver /health</a>
+      </article>
+
+      <article class="card">
+        <h2>Cómo funciona</h2>
+        <ol>
+          <li>Vapi recibe la llamada.</li>
+          <li>La IA conversa con el cliente.</li>
+          <li>La IA llama a nuestras herramientas.</li>
+          <li>El backend consulta disponibilidad.</li>
+          <li>Se crea la cita en Google Calendar.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Herramientas del agente</h2>
+      <div class="tools">
+        <div><b>business_info</b><small>Información del negocio</small></div>
+        <div><b>check_availability</b><small>Consulta horarios libres</small></div>
+        <div><b>book_appointment</b><small>Crea la cita</small></div>
+      </div>
+    </section>
+
+    <footer>TAMPI VOICE — primera versión comercial</footer>
+  </main>
+</body>
+</html>

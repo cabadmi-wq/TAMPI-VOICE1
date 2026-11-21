@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: tampi-voice
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: TIMEZONE
+        value: America/Guayaquil
+      - key: BUSINESS_NAME
+        value: TAMPI VOICE Demo
+      - key: BUSINESS_PHONE
+        value: ""
+      - key: BUSINESS_ADDRESS
+        value: ""
+      - key: GOOGLE_CALENDAR_ID
+        value: primary
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
